@@ -1,26 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Inject  } from '@angular/core';
 import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { job } from './job';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-
 export class CardComponent implements OnInit {
   
-  constructor(private http:HttpClient, public dialog: MatDialog) { 
+  constructor(private http: HttpClient, public dialog: MatDialog) { }
 
-  }
-
-  Jobs;
+  Jobs: any;
   ngOnInit(): void {
-    this.Jobs = this.http.get<String>('http://localhost:8080')
-    .subscribe(
-      data => this.Jobs = (data),
-      error => console.log(error)
-    );
+    this.http.get<job>('http://localhost:8080')
+      .subscribe(
+        data => {
+          console.log("Data: " + JSON.stringify(data))
+          this.Jobs = data
+        },
+        error => {
+          console.log("Error: " + error)
+        }
+      );
   }
   
   showDetails: any = false;

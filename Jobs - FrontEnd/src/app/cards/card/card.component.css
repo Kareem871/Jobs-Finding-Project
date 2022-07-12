@@ -1,18 +1,12 @@
 .job-card {
-  max-width: 1000px;
-  margin: 2rem;
-  width: 80%;
+    margin: 2rem;
+    width: 80%;
 }
 
 span {
-  padding-right: 3rem;
-}
-
-.example-form-field {
-  padding-right: 1rem;
-  padding-top: 2rem;
+    padding-right: 3rem;
 }
 
 .example-form {
-  text-align: center;
+    text-align: center;
 }

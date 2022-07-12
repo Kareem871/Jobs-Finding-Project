@@ -1,4 +1,4 @@
-export interface job{
+export interface job {
     id: any,
     title: String,
     level: String,

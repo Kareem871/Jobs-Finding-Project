@@ -1,21 +1,25 @@
 <app-navbar></app-navbar>
 <div>
-    <form class="example-container" [formGroup]="form" (ngSubmit)="addJob()">
-        <mat-form-field [(ngModel)]="titleErr">
-            <input matInput placeholder="Title *" name="title" formControlName="title">
 
+    <form class="example-container" [formGroup]="form" (ngSubmit)="addJob()">
+        <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input matInput [formControl]="titleControl">
         </mat-form-field>
         <mat-error *ngIf="titleErr" class="errorMsg">* {{titleErr}}</mat-error>
-        <mat-form-field [(ngModel)]="descriptionErr">
-            <textarea matInput placeholder="Description *" name="description" formControlName="description"></textarea>
+
+        <mat-form-field>
+            <textarea matInput placeholder="Description *" name="description" [formControl]="descriptionControl"></textarea>
         </mat-form-field>
         <mat-error *ngIf="descriptionErr" class="errorMsg">* {{descriptionErr}}</mat-error>
-        <mat-form-field [(ngModel)]="salaryErr">
-            <input type="number" matInput placeholder="Salary *" name="salary" formControlName="salary">
+
+        <mat-form-field>
+            <input type="number" matInput placeholder="Salary *" name="salary" [formControl]="salaryControl">
         </mat-form-field>
         <mat-error *ngIf="salaryErr" class="errorMsg">* {{salaryErr}}</mat-error>
-        <mat-form-field [(ngModel)]="levelErr">
-            <mat-select placeholder="Select Level *" name="level" formControlName="level">
+
+        <mat-form-field>
+            <mat-select placeholder="Select Level *" name="level" [formControl]="levelControl">
                 <mat-option value="Fresh">Fresh</mat-option>
                 <mat-option value="Entry">Entry Level</mat-option>
                 <mat-option value="Junior">Junior</mat-option>
@@ -24,6 +28,7 @@
             </mat-select>
         </mat-form-field>
         <mat-error *ngIf="levelErr" class="errorMsg">* {{levelErr}}</mat-error>
+
         <button mat-raised-button color="primary">Add</button>
     </form>
 </div>

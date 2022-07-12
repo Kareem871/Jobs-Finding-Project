@@ -9,6 +9,12 @@
 
 .errorMsg {
     text-align: left;
-    padding-bottom: 1px;
-    padding-top: 0;
+    padding: 1px;
+    /* padding-top: 0; */
+    color: red;
+}
+
+form.submitted input.ng-invalid,
+input.ng-dirty.ng-invalid {
+    border: 1px solid red;
 }

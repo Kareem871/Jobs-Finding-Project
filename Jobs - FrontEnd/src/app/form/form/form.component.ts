@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl } from "@angular/forms";
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-form',
@@ -9,21 +10,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+
+  constructor(private http: HttpClient, private router: Router) { }
+
   ngOnInit(): void {
   }
-  form: FormGroup = this.createFormGroup();
+
+
+  titleControl = new FormControl()
+  descriptionControl = new FormControl()
+  salaryControl = new FormControl()
+  levelControl = new FormControl()
+
   createFormGroup(){
     return new FormGroup({
-      title: new FormControl(),
-      description: new FormControl(),
-      salary: new FormControl(),
-      level: new FormControl()
+      title: this.titleControl,
+      description: this.descriptionControl,
+      salary: this.salaryControl,
+      level: this.levelControl
     })
-  }
+  } 
 
-  
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
-  }
+  form: FormGroup = this.createFormGroup();
   
   titleErr!: String;
   descriptionErr!: String;
@@ -42,8 +50,8 @@ export class FormComponent implements OnInit {
         },
         (error) => {
           var errorsArray = error.error.errors
-          console.log(errorsArray)
-          let fieldError:Array<String> = []
+          console.log("Errors Array: " + errorsArray)
+          let fieldError: Array<String> = []
           for(let err of errorsArray){
             // console.log(err.defaultMessage)
             if(err.field == "title"){ 

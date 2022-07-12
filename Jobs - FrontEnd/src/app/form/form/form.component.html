@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div>
+    <form class="example-container" [formGroup]="form" (ngSubmit)="addJob()">
+        <mat-form-field [(ngModel)]="titleErr">
+            <input matInput placeholder="Title *" name="title" formControlName="title">
+
+        </mat-form-field>
+        <mat-error *ngIf="titleErr" class="errorMsg">* {{titleErr}}</mat-error>
+        <mat-form-field [(ngModel)]="descriptionErr">
+            <textarea matInput placeholder="Description *" name="description" formControlName="description"></textarea>
+        </mat-form-field>
+        <mat-error *ngIf="descriptionErr" class="errorMsg">* {{descriptionErr}}</mat-error>
+        <mat-form-field [(ngModel)]="salaryErr">
+            <input type="number" matInput placeholder="Salary *" name="salary" formControlName="salary">
+        </mat-form-field>
+        <mat-error *ngIf="salaryErr" class="errorMsg">* {{salaryErr}}</mat-error>
+        <mat-form-field [(ngModel)]="levelErr">
+            <mat-select placeholder="Select Level *" name="level" formControlName="level">
+                <mat-option value="Fresh">Fresh</mat-option>
+                <mat-option value="Entry">Entry Level</mat-option>
+                <mat-option value="Junior">Junior</mat-option>
+                <mat-option value="Mid-Level">Mid-Level</mat-option>
+                <mat-option value="Senior">Senior</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-error *ngIf="levelErr" class="errorMsg">* {{levelErr}}</mat-error>
+        <button mat-raised-button color="primary">Add</button>
+    </form>
+</div>

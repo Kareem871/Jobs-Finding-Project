@@ -1,0 +1,14 @@
+.example-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 3rem;
+    text-align: center;
+    width: 40%;
+}
+
+.errorMsg {
+    text-align: left;
+    padding-bottom: 1px;
+    padding-top: 0;
+}

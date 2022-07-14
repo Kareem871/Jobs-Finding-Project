@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CardComponent, DialogContentExampleDialog } from './cards/card/card.component';
 import { FormComponent } from './form/form/form.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormComponent } from './form/form/form.component';
     NavbarComponent,
     CardComponent,
     FormComponent,
-    DialogContentExampleDialog
+    DialogContentExampleDialog,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

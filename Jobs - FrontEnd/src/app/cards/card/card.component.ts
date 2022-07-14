@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, Inject  } from '@angular/core';
+import { Component, OnInit, Inject, Input  } from '@angular/core';
 import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { job } from './job';
 
@@ -27,25 +27,6 @@ export class CardComponent implements OnInit {
   }
   
   showDetails: any = false;
-  value = "clear me"
-  
-  searchTitle = false;
-  SearchTitle() {
-    this.searchTitle = !this.searchTitle;
-  }
-  searchLevel = false;
-  SearchLevel() {
-    this.searchLevel = !this.searchLevel;
-  }
-  searchSalary = false;
-  SearchSalary() {
-    this.searchSalary = !this.searchSalary;
-  }  
-  
-  showSelected = false;
-  categoriesShow() {
-    this.showSelected = !this.showSelected;
-  }
   
   openDetails(i) {
     const dialogConfig = new MatDialogConfig();
@@ -61,6 +42,11 @@ export class CardComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+  @Input() titleSearch!: String;
+  @Input() salarySearch!: String;
+  @Input() levelSearch!: String;
+
 }
 
 @Component({

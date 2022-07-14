@@ -10,7 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field'; 
 import { MatSelectModule } from '@angular/material/select'; 
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatChipsModule } from '@angular/material/chips';
+
 const materialComponenets = [
   MatToolbarModule, 
   MatCardModule,
@@ -23,7 +25,8 @@ const materialComponenets = [
   MatIconModule,
   MatSelectModule,
   MatDialogModule,
-  MatSnackBarModule
+  MatSidenavModule,
+  MatChipsModule
 ]
 
 @NgModule({

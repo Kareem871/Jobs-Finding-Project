@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+
+<mat-drawer-container class="container" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side">
+        <form class="search-form">
+            <mat-form-field class="form-field" appearance="fill">
+                <mat-label>Title</mat-label>
+                <input matInput type="text" [(ngModel)]="title">
+                <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value = ''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+            </mat-form-field>
+
+            <mat-chip-list>
+                <mat-chip [v]="option">50k - 100k $</mat-chip>
+                <mat-chip>100k - 150k $</mat-chip>
+                <mat-chip>150k - 200k $</mat-chip>
+                <mat-chip>200k - 250k $</mat-chip>
+                <mat-chip>250k - 300k $</mat-chip>
+                <mat-chip>300k - 350k $</mat-chip>
+                <mat-chip>350k - 400k $</mat-chip>
+                <mat-chip>400k - 450k $</mat-chip>
+                <mat-chip>450k - 500k $</mat-chip>
+            </mat-chip-list>
+
+            <mat-form-field class="form-field" appearance="fill">
+                <mat-label>Level</mat-label>
+                <mat-select placeholder="Select Level *" name="level" [(ngModel)]="level">
+                    <mat-option value="">All</mat-option>
+                    <mat-option value="Fresh">Fresh</mat-option>
+                    <mat-option value="Entry">Entry Level</mat-option>
+                    <mat-option value="Junior">Junior</mat-option>
+                    <mat-option value="Mid-Level">Mid-Level</mat-option>
+                    <mat-option value="Senior">Senior</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+    </mat-drawer>
+
+    <div class="sidenav-content">
+        <div class="buttons">
+            <button mat-icon-button [routerLink]="'/new'">
+                <mat-icon>add</mat-icon>
+            </button>
+
+            <button mat-icon-button type="button" mat-button (click)="drawer.toggle()">
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+
+        <app-card [titleSearch]="title" [salarySearch]="salary" [levelSearch]="level"></app-card>
+    </div>
+</mat-drawer-container>
